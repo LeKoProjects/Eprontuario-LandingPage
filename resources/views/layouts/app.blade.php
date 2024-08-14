@@ -4,7 +4,8 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>24 News — Free Website Template, Free HTML5 Template by FreeHTML5.co</title>
+    <title>VPnews</title>
+    <link rel="icon" type="image/png" href="{{ asset('images/logo.png') }}">
     <link href="css/media_query.css" rel="stylesheet" type="text/css" />
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
@@ -29,7 +30,43 @@
 
     @yield('content')
     
+    <div class="container-fluid fh5co_footer_bg pb-3">
+        <div class="container animate-box">
+            <div class="row">
+                <div class="col-12 spdp_right py-3"><img src="images/white_logo.png" alt="img"
+                        class="footer_logo" /></div>
+                <div class="col-md-12">
+                    <div class="footer_main_title py-3"> Sobre</div>
+                    <div class="footer_sub_about pb-3"> Bem-vindo ao TV Vermelho e Preto News (VPnews), o seu portal de
+                        notícias dedicado ao Esporte Clube Vitória! Aqui, você encontrará as últimas atualizações, análises,
+                        entrevistas e tudo o que envolve o universo do nosso querido Leão da Barra. Seja você torcedor de
+                        longa data ou novo fã, o VPnews é o lugar certo para ficar por dentro de tudo que acontece no
+                        Vitória. Acompanhe-nos e torça junto com a gente!
+                    </div>
+                    <div class="footer_mediya_icon">
+                        <div class="text-center d-inline-block">
+                            <a class="fh5co_display_table" href="https://www.instagram.com/tvvermelhoepreto/" target="_blank"><div class="fh5co_verticle_middle"><i class="fa fa-instagram"></i></i></div></a>
+                        </div>
+                        <div class="text-center d-inline-block">
+                            <a class="fh5co_display_table" href="https://www.youtube.com/@tvvermelhoepreto.oficial" target="_blank"><div class="fh5co_verticle_middle"><i class="fa fa-brands fa-youtube"></i></i></div></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid fh5co_footer_right_reserved">
+        <div class="container">
+            <div class="row  ">
+                <div class="col-12 col-md-6 py-4 Reserved"> © Copyright 2018, A&B Entertainment and Business. </div>
+            </div>
+        </div>
+    </div>
 
+    <div class="gototop js-top">
+        <a href="#" class="js-gotop"><i class="fa fa-arrow-up"></i></a>
+    </div>
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     <!--<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
