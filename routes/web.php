@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ArtigosController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -26,3 +27,5 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/register', [App\Http\Controllers\Auth\RegisterController::class, 'register']);
 });
 
+Route::get('/quemsomos', [ArtigosController::class, 'QuemSomosIndex'])->name('QuemSomosIndex');
+Route::get('/contato', [ArtigosController::class, 'ContatoIndex'])->name('ContatoIndex');
