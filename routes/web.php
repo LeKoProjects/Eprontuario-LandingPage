@@ -27,5 +27,8 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/register', [App\Http\Controllers\Auth\RegisterController::class, 'register']);
 });
 
+#Artigos Principais
+Route::get('/artigos', [ArtigosController::class, 'index'])->name('artigo.index');
+
 Route::get('/quemsomos', [ArtigosController::class, 'QuemSomosIndex'])->name('QuemSomosIndex');
 Route::get('/contato', [ArtigosController::class, 'ContatoIndex'])->name('ContatoIndex');

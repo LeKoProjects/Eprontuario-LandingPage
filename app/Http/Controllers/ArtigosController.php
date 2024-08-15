@@ -12,7 +12,9 @@ class ArtigosController extends Controller
      */
     public function index()
     {
-        //
+        $artigos = Artigos::all();
+        
+        return view('welcome', compact('artigos'));
     }
 
     public function QuemSomosIndex()

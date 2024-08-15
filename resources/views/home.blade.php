@@ -59,7 +59,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                {{-- @foreach ($artigos as $item)
+                                @foreach ($artigos as $item)
                                     <tr>
                                         <td>{{ $item->id }}</td>
                                         <td>{{ $item->titulo }}</td>
@@ -154,7 +154,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                @endforeach --}}
+                                @endforeach
                             </tbody>
                         </table>
                     </form>
