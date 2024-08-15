@@ -23,6 +23,11 @@ class User extends Authenticatable
         'password',
     ];
 
+    public function artigo()
+    {
+        return $this->belongsToMany(Artigos::class, 'user_id');
+    }
+
     /**
      * The attributes that should be hidden for serialization.
      *
