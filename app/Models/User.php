@@ -27,6 +27,14 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Artigos::class, 'user_id');
     }
+    public function trending()
+    {
+        return $this->belongsToMany(Trending::class, 'user_id');
+    }
+    public function live()
+    {
+        return $this->belongsToMany(Lives::class, 'user_id');
+    }
 
     /**
      * The attributes that should be hidden for serialization.

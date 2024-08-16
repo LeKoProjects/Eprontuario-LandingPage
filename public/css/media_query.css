@@ -105,7 +105,7 @@
 }
 .fh5co_footer_bg {
 	background: #222;
-	color: #fff;
+	color: #222;
 	-webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
 	clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
 }
@@ -129,7 +129,7 @@
 .btn_mange_pagging {
 	background: #f1f1f1;
 	padding: 12px 5px;
-	color: #222!important;
+	color: #fff!important;
 	font-weight: 800;
 	margin: 0 5px;
 	transition: 0.5s;
@@ -137,7 +137,7 @@
 }
 .btn_pagging {
 	background: #f1f1f1!important;
-	color: #222;
+	color: #fff;
 	padding: 12px 10px!important;
 	font-weight: 800;
 	margin: 0 5px;
@@ -145,12 +145,12 @@
 	font-size: 12px;
 }
 .btn_mange_pagging:hover, .btn_mange_pagging:focus {
-	background: #222;
+	background: #fff;
 	color: #fff!important;
 	font-weight: 800;
 }
 .btn_pagging:hover, .btn_pagging:focus {
-	background: #222!important;
+	background: #fff!important;
 	color: #fff;
 }
 }

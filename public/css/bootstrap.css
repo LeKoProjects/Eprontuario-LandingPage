@@ -341,7 +341,7 @@ body {
   font-size: 14px;
   font-weight: normal;
   line-height: 1.5;
-  color: #292b2c;
+  color: #ffffff;
   background-color: #fff;
 }
 
@@ -536,7 +536,7 @@ h1, h2, h3, h4, h5, h6,
   font-family: inherit;
   font-weight: 500;
   line-height: 1.1;
-  color: inherit;
+  color: #fff;
 }
 
 h1, .h1 {
@@ -5794,7 +5794,7 @@ button.close {
   padding: 8px 14px;
   margin-bottom: 0;
   font-size: 1rem;
-  background-color: #f7f7f7;
+  background-color: #a4a4a4;
   border-bottom: 1px solid #ebebeb;
   border-top-right-radius: calc(0.3rem - 1px);
   border-top-left-radius: calc(0.3rem - 1px);
@@ -6077,7 +6077,7 @@ button.close {
 }
 
 .bg-faded {
-  background-color: #f7f7f7;
+  background-color: #222;
 }
 
 .bg-primary {

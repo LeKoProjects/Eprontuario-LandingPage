@@ -3,14 +3,14 @@
     <div class="container">
         <div class="row">
             <div class="col-12 col-md-3 fh5co_padding_menu">
-                <img src="images/logo.png" alt="img" class="fh5co_logo_width"/>
+                <img src="{{ asset('images/logo.png')}}" alt="img" class="fh5co_logo_width"/>
             </div>
             <div class="col-12 col-md-9 align-self-center fh5co_mediya_right">
                 <div class="text-center d-inline-block">
-                    <a class="fh5co_display_table" href="https://www.instagram.com/tvvermelhoepreto/" target="_blank"><div class="fh5co_verticle_middle"><i class="fa fa-instagram"></i></i></div></a>
+                    <a class="fh5co_display_table" href="{{ asset('https://www.instagram.com/tvvermelhoepreto/')}}" target="_blank"><div class="fh5co_verticle_middle"><i class="fa fa-instagram"></i></i></div></a>
                 </div>
                 <div class="text-center d-inline-block">
-                    <a class="fh5co_display_table" href="https://www.youtube.com/@tvvermelhoepreto.oficial" target="_blank"><div class="fh5co_verticle_middle"><i class="fa fa-brands fa-youtube"></i></i></div></a>
+                    <a class="fh5co_display_table" href="{{ asset('https://www.youtube.com/@tvvermelhoepreto.oficial')}}" target="_blank"><div class="fh5co_verticle_middle"><i class="fa fa-brands fa-youtube"></i></i></div></a>
                 </div>
                 {{-- <div class="text-center d-inline-block">
                     <a class="fh5co_display_table"><div class="fh5co_verticle_middle"><i class="fa fa-google-plus"></i></div></a>
@@ -31,14 +31,14 @@
             <button class="navbar-toggler navbar-toggler-right mt-3" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                     aria-label="Toggle navigation"><span class="fa fa-bars"></span></button>
-            <a class="navbar-brand" href="#"><img src="images/logo.png" alt="img" class="mobile_logo_width"/></a>
+            <a class="navbar-brand" href="#"><img src="images/logo1.png" alt="img" class="mobile_logo_width"/></a>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
                         <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link" href="#">Noticias <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="{{ route('NoticiasIndex') }}">Noticias <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item ">
                         <a class="nav-link" href="{{ route('QuemSomosIndex') }}">Quem Somos <span class="sr-only">(current)</span></a>

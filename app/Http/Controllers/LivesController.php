@@ -9,11 +9,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
-class ArtigosController extends Controller
+class LivesController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
         $artigos = Artigos::paginate(3); // Mostra 10 artigos por página
@@ -22,39 +19,13 @@ class ArtigosController extends Controller
         return view('home', compact(['artigos', 'trending', 'lives']));
     }
 
-
-    public function QuemSomosIndex()
-    {
-        return view('quemsomos');
-    }
-
-    public function ContatoIndex()
-    {
-        return view('contato');
-    }
-    public function NoticiasIndex()
-    {
-        $noticias = Artigos::orderBy('created_at', 'desc')->paginate(5);
-        return view('noticias', compact('noticias'));
-    }
-    public function NoticiasShow($id)
-    {
-        $noticias = Artigos::findOrFail($id);
-
-        return view('show', compact(['noticias']));
-    }
-
-
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         $user = Auth::user();
         $user_id = $user->id;
         // Capitalize the input
         $titulo = ucfirst($request->input('titulo'));
-        $descricao = $request->input('descricao');
+        $link = $request->input('link');
         $imagem = $request->file('imagem');
 
 
@@ -71,21 +42,21 @@ class ArtigosController extends Controller
             $imagem->move(public_path('images/'), $imageName);
 
             // Create a new user
-            $artigo = Artigos::create([
+            $lives = Lives::create([
                 'titulo' => $titulo,
-                'descricao' => $descricao,
+                'link' => $link,
                 'imagem' => $imageName,
                 'user_id' => $user_id,
             ]);
         } else {
-            $artigo = Artigos::create([
+            $lives = Lives::create([
                 'titulo' => $titulo,
-                'descricao' => $descricao,
+                'link' => $link,
                 'user_id' => $user_id,
             ]);
         }
 
-        return redirect()->back()->with('success', 'Artigo criado com sucesso')->with('artigo', $artigo);
+        return redirect()->back()->with('success', 'Lives criado com sucesso')->with('lives', $lives);
     }
 
     /**
@@ -94,11 +65,11 @@ class ArtigosController extends Controller
     public function update(Request $request, $id)
     {
         // Find the user by ID
-        $artigo = Artigos::findOrFail($id);
+        $lives = Lives::findOrFail($id);
 
         // Capitalize the input
         $titulo = ucfirst($request->input('titulo'));
-        $descricao = $request->input('descricao');
+        $link = $request->input('link');
         $imagem = $request->file('imagem');
 
         if ($imagem && $imagem->isValid()) {
@@ -111,23 +82,23 @@ class ArtigosController extends Controller
             $imagem->move(public_path('images/'), $imageName);
 
             // Remove the old image if exists
-            if ($artigo->imagem && file_exists(public_path('images/') . $artigo->imagem)) {
-                unlink(public_path('images/') . $artigo->imagem);
+            if ($lives->imagem && file_exists(public_path('images/') . $lives->imagem)) {
+                unlink(public_path('images/') . $lives->imagem);
             }
 
             // Update the user with the new image
-            $artigo->imagem = $imageName;
+            $lives->imagem = $imageName;
         }
 
         // Update user attributes
-        $artigo->titulo = $titulo;
-        $artigo->descricao = $descricao;
+        $lives->titulo = $titulo;
+        $lives->link = $link;
 
         // Save the updated user data
-        $artigo->save();
+        $lives->save();
 
 
-        return redirect()->back()->with('success', 'Artigo atualizado com sucesso')->with('artigo', $artigo);
+        return redirect()->back()->with('success', 'Lives atualizado com sucesso')->with('lives', $lives);
     }
 
 
@@ -139,7 +110,7 @@ class ArtigosController extends Controller
     public function destroy($id)
     {
         // Encontra o artigo
-        $artigo = Artigos::findOrFail($id);
+        $lives = Lives::findOrFail($id);
 
         // Verifica se o usuário logado é o dono do artigo
         // if ($artigo->user_id !== Auth::id()) {
@@ -147,14 +118,14 @@ class ArtigosController extends Controller
         // }
 
         // Remove a imagem associada se existir
-        if ($artigo->imagem) {
-            Storage::delete('public/artigos/' . $artigo->imagem);
+        if ($lives->imagem) {
+            Storage::delete('public/artigos/' . $lives->imagem);
         }
 
         // Exclui o artigo
-        $artigo->delete();
+        $lives->delete();
 
-        return redirect()->back()->with('success', 'Artigo excluído com sucesso!');
+        return redirect()->back()->with('success', 'Lives excluído com sucesso!');
 
     }
 }
