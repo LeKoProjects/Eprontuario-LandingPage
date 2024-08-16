@@ -12,7 +12,7 @@
                             <h4>Sobre nós</h4>
                             <p>Bem-vindo ao Vermelho e Preto News (VPnews), a sua fonte principal para todas as notícias sobre o Esporte Clube Vitória. Somos uma equipe apaixonada que vive e respira o futebol, especialmente quando se trata do nosso amado Leão da Barra. No nosso canal no YouTube, TV Vermelho e Preto, apresentamos o programa "Nosso Grito", onde discutimos e analisamos os acontecimentos mais recentes do clube.</p>
                             <p>O "Nosso Grito" é conduzido por Marzzo Silva e Phabio Almeida, dois grandes torcedores e conhecedores do Vitória. Juntos, eles trazem uma visão autêntica e apaixonada sobre os jogos, bastidores, transferências, e tudo o que envolve o universo rubro-negro. Aqui, você encontra análises aprofundadas, opiniões sinceras e a participação ativa da torcida, que faz do VPnews um verdadeiro ponto de encontro para quem ama o ECVitória.</p>
-                            <img src="images/tv.png" alt="Sobre VPnews" width="835" height="418" />
+                            <img src="images/logo.png" alt="Sobre VPnews" width="835" height="418" />
                         </div>
                         <div class="tab-pane fade" id="tabs-4-2">
                             <h4>Nosso Grito: Análises e Opiniões</h4>
