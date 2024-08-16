@@ -8,6 +8,7 @@ use App\Models\Trending;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class ArtigosController extends Controller
 {
@@ -35,6 +36,12 @@ class ArtigosController extends Controller
     public function NoticiasIndex()
     {
         $noticias = Artigos::orderBy('created_at', 'desc')->paginate(5);
+
+        // Aplica o limite de caracteres a cada descrição
+        foreach ($noticias as $noticia) {
+            $noticia->descricao = Str::limit($noticia->descricao, 400, '...');
+        }
+
         return view('noticias', compact('noticias'));
     }
     public function NoticiasShow($id)

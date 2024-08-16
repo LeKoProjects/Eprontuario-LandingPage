@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('trendings', function (Blueprint $table) {
             $table->id();
-            $table->string('titulo')->nullable();
-            $table->string('link')->nullable();
-            $table->string('imagem')->nullable();
+            $table->string('titulo', 1000)->nullable();
+            $table->string('link', 1000)->nullable();
+            $table->string('imagem', 1000)->nullable();
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->softDeletes();
             $table->timestamps();

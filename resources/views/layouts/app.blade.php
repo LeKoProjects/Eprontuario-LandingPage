@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>VPnews</title>
-    <link rel="icon" type="image/png" href="{{ asset('images/logo.png') }}">
+    <link rel="icon" type="image/png" href="{{ asset('images/white_logo.png') }}">
     <link href="{{ asset('css/media_query.css')}}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('css/bootstrap.css')}}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css') }}" rel="stylesheet"
