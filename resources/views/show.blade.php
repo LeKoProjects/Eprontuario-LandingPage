@@ -12,7 +12,7 @@
                         <div class="tab-pane fade show active" id="tabs-4-1">
                             <h4>{{ $noticias->titulo }}</h4>
                             <p>{{ $noticias->descricao }}</p>
-                            <img src="{{ asset('images/' . $noticias->imagem) }}" alt="{{ $noticias->titulo }}" width="835" height="418" />
+                            <img src="{{ asset('images/' . $noticias->imagem) }}" alt="{{ $noticias->titulo }}" class="img-fluid" />
                             <p class="fh5co_mini_time py-3"> {{ $noticias->created_at->format('d/m/Y') }}</p>
                         </div>
                     </div>
