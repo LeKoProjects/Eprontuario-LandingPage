@@ -33,7 +33,7 @@
     <div class="container-fluid fh5co_footer_bg pb-3">
         <div class="container animate-box">
             <div class="row">
-                <div class="col-12 spdp_right py-3"><img src="{{ asset('images/white_logo.png')}}" alt="img"
+                <div class="col-12 spdp_right py-3"><img src="{{ asset('images/logo.png')}}" alt="img"
                         class="footer_logo" /></div>
                 <div class="col-md-12">
                     <div class="footer_main_title py-3"> Sobre</div>
