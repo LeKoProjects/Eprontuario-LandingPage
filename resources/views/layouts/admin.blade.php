@@ -20,7 +20,7 @@
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <div class="col-12 col-md-3 fh5co_padding_menu">
-                        <img src="images/logo1.png" alt="img" class="fh5co_logo_width w-75"/>
+                        <img src="images/logo.png" alt="img" class="fh5co_logo_width w-75"/>
                     </div>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
