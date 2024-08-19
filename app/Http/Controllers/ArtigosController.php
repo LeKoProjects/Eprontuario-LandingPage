@@ -17,9 +17,9 @@ class ArtigosController extends Controller
      */
     public function index()
     {
-        $artigos = Artigos::paginate(3); // Mostra 10 artigos por página
-        $trending = Trending::paginate(3);
-        $lives = Lives::paginate(3);
+        $artigos = Artigos::orderBy('created_at', 'desc')->paginate(3); // Mostra 10 artigos por página
+        $trending = Trending::orderBy('created_at', 'desc')->paginate(3);
+        $lives = Lives::orderBy('created_at', 'desc')->paginate(3);
         return view('home', compact(['artigos', 'trending', 'lives']));
     }
 
