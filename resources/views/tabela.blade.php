@@ -1,31 +1,3 @@
-
-<style>
-    .card-header {
-    background-color: #006400;
-}
-
-.card-body ul.table__games {
-    padding: 0;
-    list-style: none;
-}
-
-.card-body ul.table__games li {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
-}
-
-.card-body ul.table__games li:last-child {
-    border-bottom: none;
-}
-
-.card-body ul.table__games li img {
-    height: 30px;
-    margin-right: 10px;
-}
-
-</style>
 <div class="p-4 p-md-5 mb-4 rounded text-body-emphasis bg-body-secondary text-center">
     <div class="col-lg-12 px-0">
         <h1 class="display-4 fst-italic">Classificação Brasileirão Serie A</h1>
