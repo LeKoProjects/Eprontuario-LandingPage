@@ -31,6 +31,7 @@ Auth::routes();
 Route::get('/tabela', [TabelaController::class, 'tabela_brasileiro']);
 Route::get('/{teamName}', [TabelaController::class, 'showTeam']);
 Route::post('/selecionar-time', [TabelaController::class, 'selecionarTime']);
+
 Route::get('/quemsomos', [ArtigosController::class, 'QuemSomosIndex'])->name('QuemSomosIndex');
 Route::get('/contato', [ArtigosController::class, 'ContatoIndex'])->name('ContatoIndex');
 Route::get('/noticias', [ArtigosController::class, 'NoticiasIndex'])->name('NoticiasIndex');

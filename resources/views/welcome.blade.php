@@ -43,7 +43,35 @@
     font-size: 0.875rem;
     color: #666;
 }
-
+.cell-top-four {
+        background-color: hsl(217, 72%, 45%, 0.5) !important;
+        color: #fff;
+    }
+    .cell-middle-two {
+        background-color: rgba(208, 112, 38, 0.5) !important;
+        color: #fff;
+    }
+    .cell-middle-seven {
+        background-color: hsla(136, 72%, 43%, 0.5) !important;
+        color: #fff;
+    }
+    .cell-bottom-four {
+        background-color: hsl(6, 80%, 46%, 0.5) !important;
+        color: #fff;
+    }
+    .color-box {
+        width: 15px;
+        height: 15px;
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 5px;
+    }
+    .highlight {
+        background-color: rgba(255, 255, 20, 0.493) !important;
+    }
+    .black-text {
+    color: black;
+}
 </style>
 @section('content')
     <div class="container-fluid paddding mb-5">
@@ -193,78 +221,91 @@
                     <div>
                         <div class="fh5co_heading fh5co_heading_border_bottom py-2 mb-4">Classificação</div>
                     </div>
-                    <div class="row pb-4">
-                        <div class="col-md-5">
-                            <div class="fh5co_hover_news_img">
-                                <div class="fh5co_news_img"><img src="images/nathan-mcbride-229637.jpg" alt=""/></div>
-                                <div></div>
-                            </div>
-                        </div>
-                        <div class="col-md-7 animate-box">
-                            <a href="single.html" class="fh5co_magna py-2"> Magna aliqua ut enim ad minim veniam quis
-                            nostrud quis xercitation ullamco. </a> <a href="single.html" class="fh5co_mini_time py-3"> Thomson Smith -
-                            April 18,2016 </a>
-                            <div class="fh5co_consectetur"> Amet consectetur adipisicing elit, sed do eiusmod tempor incididunt
-                                ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row pb-4">
-                        <div class="col-md-5">
-                            <div class="fh5co_hover_news_img">
-                                <div class="fh5co_news_img"><img src="images/ryan-moreno-98837.jpg" alt=""/></div>
-                                <div></div>
-                            </div>
-                        </div>
-                        <div class="col-md-7">
-                            <a href="single.html" class="fh5co_magna py-2"> Magna aliqua ut enim ad minim veniam quis
-                            nostrud quis xercitation ullamco. </a> <a href="#" class="fh5co_mini_time py-3"> Thomson Smith -
-                            April 18,2016 </a>
-                            <div class="fh5co_consectetur"> Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                                commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-                                dolore.
-                            </div>
-                            <ul class="fh5co_gaming_topikk pt-3">
-                                <li> Why 2017 Might Just Be the Worst Year Ever for Gaming</li>
-                                <li> Ghost Racer Wants to Be the Most Ambitious Car Game</li>
-                                <li> New Nintendo Wii Console Goes on Sale in Strategy Reboot</li>
-                                <li> You and Your Kids can Enjoy this News Gaming Console</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="row pb-4">
-                        <div class="col-md-5">
-                            <div class="fh5co_hover_news_img">
-                                <div class="fh5co_news_img">
-                                    <img src="images/photo-1449157291145-7efd050a4d0e-578x362.jpg" alt=""/>
-                                </div>
-                                <div></div>
-                            </div>
-                        </div>
-                        <div class="col-md-7">
-                            <a href="single.html" class="fh5co_magna py-2"> Magna aliqua ut enim ad minim veniam quis
-                            nostrud quis xercitation ullamco. </a> <a href="#" class="fh5co_mini_time py-3"> Thomson Smith -
-                            April 18,2016 </a>
-                            <div class="fh5co_consectetur"> Quis nostrud xercitation ullamco laboris nisi aliquip ex ea commodo
-                                consequat.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row pb-4">
-                        <div class="col-md-5">
-                            <div class="fh5co_hover_news_img">
-                                <div class="fh5co_news_img"><img src="images/office-768x512.jpg" alt=""/></div>
-                                <div></div>
-                            </div>
-                        </div>
-                        <div class="col-md-7">
-                            <a href="single.html" class="fh5co_magna py-2"> Magna aliqua ut enim ad minim veniam quis
-                            nostrud quis xercitation ullamco. </a> <a href="#" class="fh5co_mini_time py-3"> Thomson Smith -
-                            April 18,2016 </a>
-                            <div class="fh5co_consectetur"> Amet consectetur adipisicing elit, sed do eiusmod tempor incididunt
-                                ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
-                            </div>
-                        </div>
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>#</th>
+                                    <th></th>
+                                    <th colspan="2">TIMES</th>
+                                    <th>P</th>
+                                    <th>J</th>
+                                    <th>V</th>
+                                    <th>E</th>
+                                    <th>D</th>
+                                    <th>GP</th>
+                                    <th>GC</th>
+                                    <th>SG</th>
+                                    <th>%</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($rows as $index => $row)
+                                    @if ($index != 0)
+                                        <tr id="team-{{ $index }}" data-time="{{ trim($row[1]) }}" onclick="selectTeam('{{ $index }}', '{{ trim($row[1]) }}')">
+                                            <td class="@if ($index >= 1 && $index <= 4) cell-top-four
+                                            @elseif($index >= 5 && $index <= 6)
+                                                cell-middle-two
+                                            @elseif($index >= 7 && $index <= 12)
+                                                cell-middle-seven       
+                                            @elseif($index > 16) cell-bottom-four @endif @if (isset($teamName) && $teamName == trim($row[1])) highlight @endif">
+                                                {{ $index }}
+                                            </td>
+                                            <td class="@if (isset($teamName) && $teamName == trim($row[1])) highlight @endif">
+                                                <img src="images/{{ trim($row[1]) }}.png"
+                                                    style="height: 25px; vertical-align: middle; margin-right: 5px;">
+                                            </td>
+                                            <td class="@if (isset($teamName) && $teamName == trim($row[1])) highlight @endif text-start">
+                                                @if (trim($row[1]) == 'Sao Paulo')
+                                                    São Paulo
+                                                @elseif(trim($row[1]) == 'Cuiaba')
+                                                    Cuiabá
+                                                @elseif(trim($row[1]) == 'Atletico-MG')
+                                                    Atlético-MG
+                                                @elseif(trim($row[1]) == 'Atletico-GO')
+                                                    Atlético-GO
+                                                @elseif(trim($row[1]) == 'Vitoria')
+                                                    Vitória
+                                                @elseif(trim($row[1]) == 'Gremio')
+                                                    Grêmio
+                                                @elseif(trim($row[1]) == 'Criciuma')
+                                                    Criciúma
+                                                @elseif(trim($row[1]) == 'Red Bull Bragantino')
+                                                Bragantino
+                                                @else
+                                                    {{ trim($row[1]) }}
+                                                @endif
+                                            </td>
+                                            @foreach ($row as $cell_index => $cell)
+                                                @if ($cell_index != 1)
+                                                    <td class="@if (isset($teamName) && $teamName == trim($row[1])) highlight @endif">{{ $cell }}</td>
+                                                @endif
+                                            @endforeach
+                                        </tr>
+                                    @endif
+                                @endforeach
+                            </tbody>
+                            <tfoot class="table-dark">
+                                <tr>
+                                    <td colspan="3">
+                                        <div class="color-box" style="background-color:#2161c7"></div>
+                                        Libertadores
+                                    </td>
+                                    <td colspan="3">
+                                        <div class="color-box" style="background-color:#d07026"></div>
+                                        Pré-Libertadores
+                                    </td>
+                                    <td colspan="3">
+                                        <div class="color-box" style="background-color:#1fbe4a"></div>
+                                        Sul-Americana
+                                    </td>
+                                    <td colspan="4">
+                                        <div class="color-box" style="background-color:#d42a18"></div>
+                                        Rebaixamento
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        </table>
                     </div>
                 </div>
                 <div class="col-md-3 animate-box" data-animate-effect="fadeInRight">
@@ -272,58 +313,18 @@
                         <div class="fh5co_heading fh5co_heading_border_bottom py-2 mb-4">Resultados</div>
                     </div>
                     <div class="clearfix"></div>
-                    <div class="fh5co_tags_all">
-                        <a href="#" class="fh5co_tagg">Business</a>
-                        <a href="#" class="fh5co_tagg">Technology</a>
-                        <a href="#" class="fh5co_tagg">Sport</a>
-                        <a href="#" class="fh5co_tagg">Art</a>
-                        <a href="#" class="fh5co_tagg">Lifestyle</a>
-                        <a href="#" class="fh5co_tagg">Three</a>
-                        <a href="#" class="fh5co_tagg">Photography</a>
-                        <a href="#" class="fh5co_tagg">Lifestyle</a>
-                        <a href="#" class="fh5co_tagg">Art</a>
-                        <a href="#" class="fh5co_tagg">Education</a>
-                        <a href="#" class="fh5co_tagg">Social</a>
-                        <a href="#" class="fh5co_tagg">Three</a>
-                    </div>
-                    <div>
-                        <div class="fh5co_heading fh5co_heading_border_bottom pt-3 py-2 mb-4">Most Popular</div>
-                    </div>
-                    <div class="row pb-3">
-                        <div class="col-5 align-self-center">
-                            <img src="images/download (1).jpg" alt="img" class="fh5co_most_trading"/>
+                    @if($rodadasContent)
+                        <div class="card mt-4">
+                            <div class="card-header bg-danger text-white text-center"></div>
+                            <div class="card-body black-text">
+                                <ul>
+                                    {!! preg_replace('/<img([^>]+)>/', '<img$1 class="img-fluid game-img" style="height: 20px; width: auto;">', $rodadasContent) !!}
+                                </ul>
+                            </div>
                         </div>
-                        <div class="col-7 paddding">
-                            <div class="most_fh5co_treding_font"> Magna aliqua ut enim ad minim veniam quis nostrud.</div>
-                            <div class="most_fh5co_treding_font_123"> April 18, 2016</div>
-                        </div>
-                    </div>
-                    <div class="row pb-3">
-                        <div class="col-5 align-self-center">
-                            <img src="images/allef-vinicius-108153.jpg" alt="img" class="fh5co_most_trading"/>
-                        </div>
-                        <div class="col-7 paddding">
-                            <div class="most_fh5co_treding_font"> Enim ad minim veniam nostrud xercitation ullamco.</div>
-                            <div class="most_fh5co_treding_font_123"> April 18, 2016</div>
-                        </div>
-                    </div>
-                    <div class="row pb-3">
-                        <div class="col-5 align-self-center">
-                            <img src="images/download (2).jpg" alt="img" class="fh5co_most_trading"/>
-                        </div>
-                        <div class="col-7 paddding">
-                            <div class="most_fh5co_treding_font"> Magna aliqua ut enim ad minim veniam quis nostrud.</div>
-                            <div class="most_fh5co_treding_font_123"> April 18, 2016</div>
-                        </div>
-                    </div>
-                    <div class="row pb-3">
-                        <div class="col-5 align-self-center"><img src="images/seth-doyle-133175.jpg" alt="img"
-                                                                  class="fh5co_most_trading"/></div>
-                        <div class="col-7 paddding">
-                            <div class="most_fh5co_treding_font"> Magna aliqua ut enim ad minim veniam quis nostrud.</div>
-                            <div class="most_fh5co_treding_font_123"> April 18, 2016</div>
-                        </div>
-                    </div>
+                    @else
+                        <p>Não foi possível carregar as informações da rodada.</p>
+                    @endif
                 </div>
             </div>
         </div>
