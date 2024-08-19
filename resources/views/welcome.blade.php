@@ -1,64 +1,69 @@
 @extends('layouts.app')
 <style>
     .fh5co_news_img {
-    position: relative;
-}
+        position: relative;
+    }
 
-.fh5co_news_img img {
-    width: 100%;
-    height: auto;
-}
+    .fh5co_news_img img {
+        width: 100%;
+        height: auto;
+    }
 
-.play-button {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 2rem;
-    color: white;
-    text-decoration: none;
-    border-radius: 50%;
-    padding: 0.5rem;
-}
+    .play-button {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 2rem;
+        color: white;
+        text-decoration: none;
+        border-radius: 50%;
+        padding: 0.5rem;
+    }
 
-.play-button i {
-    position: relative;
-    top: -2px;
-}
+    .play-button i {
+        position: relative;
+        top: -2px;
+    }
 
-.item {
-    margin-bottom: 1rem;
-}
+    .item {
+        margin-bottom: 1rem;
+    }
 
-.fh5co_small_post_heading {
-    font-size: 1rem;
-    color: #333;
-}
+    .fh5co_small_post_heading {
+        font-size: 1rem;
+        color: #333;
+    }
 
-.fh5co_small_post_heading:hover {
-    text-decoration: underline;
-}
+    .fh5co_small_post_heading:hover {
+        text-decoration: underline;
+    }
 
-.c_g {
-    font-size: 0.875rem;
-    color: #666;
-}
-.cell-top-four {
+    .c_g {
+        font-size: 0.875rem;
+        color: #666;
+    }
+
+    .cell-top-four {
         background-color: hsl(217, 72%, 45%, 0.5) !important;
         color: #fff;
     }
+
     .cell-middle-two {
         background-color: rgba(208, 112, 38, 0.5) !important;
         color: #fff;
     }
+
     .cell-middle-seven {
         background-color: hsla(136, 72%, 43%, 0.5) !important;
         color: #fff;
     }
+
     .cell-bottom-four {
         background-color: hsl(6, 80%, 46%, 0.5) !important;
         color: #fff;
     }
+
     .color-box {
         width: 15px;
         height: 15px;
@@ -66,12 +71,14 @@
         vertical-align: middle;
         margin-right: 5px;
     }
+
     .highlight {
         background-color: rgba(255, 255, 20, 0.493) !important;
     }
+
     .black-text {
-    color: black;
-}
+        color: black;
+    }
 </style>
 @section('content')
     <div class="container-fluid paddding mb-5">
@@ -151,10 +158,12 @@
                                     </div>
                                     <!-- Título e Data -->
                                     <div class="pt-2">
-                                        <a href="{{ $item->link }}" target="_blank" class="d-block fh5co_small_post_heading">
+                                        <a href="{{ $item->link }}" target="_blank"
+                                            class="d-block fh5co_small_post_heading">
                                             <span>{{ $item->titulo }}</span>
                                         </a>
-                                        <div class="c_g"><i class="fa fa-clock-o"></i>{{ $item->created_at->format('d/m/Y') }}</div>
+                                        <div class="c_g"><i
+                                                class="fa fa-clock-o"></i>{{ $item->created_at->format('d/m/Y') }}</div>
                                     </div>
                                 </div>
                             </div>
@@ -203,7 +212,8 @@
                         <div class="fh5co_hover_news_img">
                             <div class="fh5co_news_img"><img src="images/{{ $item->imagem }}" alt="" /></div>
                             <div>
-                                <a href="{{ route('NoticiasShow', $item->id) }}" class="d-block fh5co_small_post_heading"><span class="">
+                                <a href="{{ route('NoticiasShow', $item->id) }}"
+                                    class="d-block fh5co_small_post_heading"><span class="">
                                         {{ $item->titulo }}</span></a>
                                 <div class="c_g"><i class="fa fa-clock-o"></i> {{ $item->created_at->format('d/m/Y') }}
                                 </div>
@@ -242,8 +252,10 @@
                             <tbody>
                                 @foreach ($rows as $index => $row)
                                     @if ($index != 0)
-                                        <tr id="team-{{ $index }}" data-time="{{ trim($row[1]) }}" onclick="selectTeam('{{ $index }}', '{{ trim($row[1]) }}')">
-                                            <td class="@if ($index >= 1 && $index <= 4) cell-top-four
+                                        <tr id="team-{{ $index }}" data-time="{{ trim($row[1]) }}"
+                                            onclick="selectTeam('{{ $index }}', '{{ trim($row[1]) }}')">
+                                            <td
+                                                class="@if ($index >= 1 && $index <= 4) cell-top-four
                                             @elseif($index >= 5 && $index <= 6)
                                                 cell-middle-two
                                             @elseif($index >= 7 && $index <= 12)
@@ -271,14 +283,15 @@
                                                 @elseif(trim($row[1]) == 'Criciuma')
                                                     Criciúma
                                                 @elseif(trim($row[1]) == 'Red Bull Bragantino')
-                                                Bragantino
+                                                    Bragantino
                                                 @else
                                                     {{ trim($row[1]) }}
                                                 @endif
                                             </td>
                                             @foreach ($row as $cell_index => $cell)
                                                 @if ($cell_index != 1)
-                                                    <td class="@if (isset($teamName) && $teamName == trim($row[1])) highlight @endif">{{ $cell }}</td>
+                                                    <td class="@if (isset($teamName) && $teamName == trim($row[1])) highlight @endif">
+                                                        {{ $cell }}</td>
                                                 @endif
                                             @endforeach
                                         </tr>
@@ -308,23 +321,102 @@
                         </table>
                     </div>
                 </div>
-                <div class="col-md-3 animate-box" data-animate-effect="fadeInRight">
+                <div class="col-md-4 animate-box" data-animate-effect="fadeInRight">
                     <div>
                         <div class="fh5co_heading fh5co_heading_border_bottom py-2 mb-4">Resultados</div>
                     </div>
                     <div class="clearfix"></div>
-                    @if($rodadasContent)
+                    @if ($rodadasContent)
                         <div class="card mt-4">
                             <div class="card-header bg-danger text-white text-center"></div>
                             <div class="card-body black-text">
-                                <ul>
-                                    {!! preg_replace('/<img([^>]+)>/', '<img$1 class="img-fluid game-img" style="height: 20px; width: auto;">', $rodadasContent) !!}
-                                </ul>
+                                {!! preg_replace_callback(
+                                    '/<li class="table__games__item">(.*?)<\/li>/s',
+                                    function ($matches) {
+                                        $content = $matches[1];
+                                
+                                        // Remover todos os hrefs e manter as tags de imagem
+                                        $content = preg_replace('/<a[^>]*href="[^"]*"[^>]*>/', '', $content);
+                                        $content = str_replace('</a>', '', $content);
+                                
+                                        // Remover as abreviações dos times, mantendo apenas as imagens
+                                        $content = preg_replace('/<a[^>]*class="team-link"[^>]*>(.*?)<\/a>/s', '', $content);
+                                
+                                        // Extrair a data e local
+                                        $dateLocation = '';
+                                        if (preg_match('/<span class="date">(.*?)<\/span>/s', $content, $dateLocationMatch)) {
+                                            $dateLocation = trim($dateLocationMatch[1]);
+                                        }
+                                
+                                        // Extrair time da casa
+                                        $homeTeam = '';
+                                        if (preg_match('/<span class="home">(.*?)<\/span>/s', $content, $homeTeamMatch)) {
+                                            $homeTeam = trim($homeTeamMatch[1]);
+                                        }
+                                
+                                        // Extrair time visitante
+                                        $guestTeam = '';
+                                        if (preg_match('/<span class="guest">(.*?)<\/span>/s', $content, $guestTeamMatch)) {
+                                            $guestTeam = trim($guestTeamMatch[1]);
+                                        }
+                                
+                                        // Extrair o placar
+                                        $homeScore = '';
+                                        $guestScore = '';
+                                        if (preg_match('/<span class="score__home">(.*?)<\/span>/s', $content, $homeScoreMatch)) {
+                                            $homeScore = trim($homeScoreMatch[1]);
+                                        }
+                                        if (preg_match('/<span class="score__guest">(.*?)<\/span>/s', $content, $guestScoreMatch)) {
+                                            $guestScore = trim($guestScoreMatch[1]);
+                                        }
+                                
+                                        // Extrair o local do jogo
+                                        $location = '';
+                                        if (preg_match('/<span class="sep">•<\/span>(.*?)<\/span>/s', $content, $locationMatch)) {
+                                            $location = trim($locationMatch[1]);
+                                        }
+                                
+                                        // Montar o layout final utilizando divs
+                                        return '
+                                                <div class="game-item" style="margin-bottom: 20px;">
+                                                    <div style="text-align: center; font-size: 12px; margin-bottom: 5px;">' .
+                                            $dateLocation .
+                                            ' • ' .
+                                            $location .
+                                            '</div>
+                                                    <div style="display: flex; justify-content: center; align-items: center; gap: 20px;">
+                                                        <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+                                                            ' .
+                                            $homeTeam .
+                                            '
+                                                        </div>
+                                                        <div style="display: flex; align-items: center; font-size: 24px; font-weight: bold; text-align: center;">
+                                                            <span>' .
+                                            $homeScore .
+                                            '</span>
+                                                            <span style="margin: 0 10px;">X</span>
+                                                            <span>' .
+                                            $guestScore .
+                                            '</span>
+                                                        </div>
+                                                        <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+                                                            ' .
+                                            $guestTeam .
+                                            '
+                                                        </div>
+                                                    </div>
+                                                </div>';
+                                    },
+                                    $rodadasContent,
+                                ) !!}
                             </div>
                         </div>
                     @else
                         <p>Não foi possível carregar as informações da rodada.</p>
                     @endif
+
+
+
                 </div>
             </div>
         </div>
