@@ -62,12 +62,58 @@ class TabelaController extends Controller
     $html = (string) $response->getBody();
     $crawler = new Crawler($html);
 
-    // Filtra a div 'mostrarRodada' que corresponde à rodada atual e captura o <ul> dentro dela
+    // Captura o conteúdo da rodada atual (ajuste o seletor conforme necessário)
     $rodadasContent = $crawler->filter('div.mostrarRodada ul.table__games')->each(function (Crawler $node) {
         return $node->html();
     });
 
-    // Retorna o primeiro <ul> encontrado (que deve corresponder à rodada atual)
-    return count($rodadasContent) > 0 ? $rodadasContent[0] : null;
+    // Retorna o conteúdo do <ul> encontrado
+    if (count($rodadasContent) > 0) {
+        $content = $rodadasContent[0];
+
+        // Substitui as URLs das imagens pelas imagens locais
+        $content = $this->substituirImagens($content);
+
+        return $content;
+    }
+
+    return null;
+}
+
+private function substituirImagens($content)
+{
+
+    $map = [
+        'Atlético-MG' => 'atletico-mg.png',
+        'Cuiabá' => 'cuiaba.png',
+        'Grêmio' => 'gremio.png',
+        'Bahia' => 'bahia.png',
+        'Red Bull Bragantino' => 'Red Bull Bragantino.png',
+        'Fortaleza' => 'fortaleza.png',
+        'Fluminense' => 'fluminense.png',
+        'Corinthians' => 'corinthians.png',
+        'Criciúma' => 'criciuma.png',
+        'Vasco' => 'vasco.png',
+        'Botafogo' => 'botafogo.png',
+        'Internacional' => 'internacional.png',
+        'São Paulo' => 'São Paulo.png',
+        'Juventude' => 'juventude.png',
+        'Flamengo' => 'flamengo.png',
+        'Cruzeiro' => 'cruzeiro.png',
+        'Vitória' => 'vitoria.png',
+        'Atlético-GO' => 'Atlético GO.png',
+        'Palmeiras' => 'palmeiras.png',
+        'Athletico-PR' => 'Athletico-PR.png'
+    ];
+
+    // Caminho base das imagens na pasta public
+    $baseUrl = asset('images'); // Isso cria a URL correta para a pasta public/images
+
+    // Substitui as URLs das imagens no conteúdo pelo nome dos times
+    foreach ($map as $teamName => $image) {
+        $content = preg_replace('/<img[^>]+src="[^"]*"[^>]*alt="' . preg_quote($teamName, '/') . '"[^>]*>/', '<img src="' . $baseUrl . '/' . $image . '" class="img-fluid game-img" style="height: 50px; width: auto;">', $content);
+    }
+
+    return $content;
 }
 }
