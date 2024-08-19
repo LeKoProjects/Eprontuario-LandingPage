@@ -59,7 +59,7 @@
                         <div class="fh5co_suceefh5co_height_position_absolute"></div>
                         <div class="fh5co_suceefh5co_height_position_absolute_font">
                             <div class="">
-                                <a href="#" class="color_fff">
+                                <a href="{{ route('NoticiasShow', $artigoRecente->id) }}" class="color_fff">
                                     <i
                                         class="fa fa-clock-o"></i>&nbsp;&nbsp;{{ $artigoRecente->created_at->format('d/m/Y') }}
                                 </a>
@@ -83,7 +83,7 @@
                                     <div class="fh5co_suceefh5co_height_position_absolute"></div>
                                     <div class="fh5co_suceefh5co_height_position_absolute_font_2">
                                         <div class="">
-                                            <a href="#" class="color_fff">
+                                            <a href="{{ route('NoticiasShow', $artigo->id) }}" class="color_fff">
                                                 <i
                                                     class="fa fa-clock-o"></i>&nbsp;&nbsp;{{ $artigo->created_at->format('d/m/Y') }}
                                             </a>
@@ -170,7 +170,7 @@
                 <div class="fh5co_heading fh5co_heading_border_bottom py-2 mb-4">Noticias</div>
             </div>
             <div class="owl-carousel owl-theme" id="slider2">
-                @foreach ($artigos2 as $item)
+                @foreach ($artigosDoQuintoEmDiante as $item)
                     <div class="item px-2">
                         <div class="fh5co_hover_news_img">
                             <div class="fh5co_news_img"><img src="images/{{ $item->imagem }}" alt="" /></div>

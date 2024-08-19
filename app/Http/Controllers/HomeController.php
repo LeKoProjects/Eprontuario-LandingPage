@@ -44,13 +44,13 @@ class HomeController extends Controller
     public function conteudo(){
         $artigos = Artigos::orderBy('created_at', 'desc')->take(5)->get();
         $trending = Trending::orderBy('created_at', 'desc')->take(6)->get();
-        $artigos2 = Artigos::orderBy('created_at', 'desc')
-                   ->skip(5) // Pular os primeiros 5 registros
-                   ->take(PHP_INT_MAX) // Pegar todos os registros restantes
-                   ->get();
+        $artigos2 = Artigos::orderBy('created_at', 'desc')->get();
+
+$artigosInvertidos = $artigos2->reverse(); // Inverte a ordem da coleção
+$artigosDoQuintoEmDiante = $artigosInvertidos->slice(4);
         $lives = Lives::orderBy('created_at', 'desc')->get(); 
 
-        return view('welcome', compact(['artigos', 'trending', 'artigos2', 'lives']));
+        return view('welcome', compact(['artigos', 'trending', 'artigosDoQuintoEmDiante', 'lives']));
     }
     
 }
