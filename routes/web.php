@@ -4,6 +4,7 @@ use App\Http\Controllers\ArtigosController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LivesController;
+use App\Http\Controllers\TabelaController;
 use App\Http\Controllers\TrendingController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -23,7 +24,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+
+
 Auth::routes();
+Route::get('/tabela', [TabelaController::class, 'tabela_brasileiro']);
+Route::get('/{teamName}', [TabelaController::class, 'showTeam']);
+Route::post('/selecionar-time', [TabelaController::class, 'selecionarTime']);
 Route::get('/quemsomos', [ArtigosController::class, 'QuemSomosIndex'])->name('QuemSomosIndex');
 Route::get('/contato', [ArtigosController::class, 'ContatoIndex'])->name('ContatoIndex');
 Route::get('/noticias', [ArtigosController::class, 'NoticiasIndex'])->name('NoticiasIndex');
@@ -35,6 +42,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/register', [RegisterController::class, 'register']);
     
 });
+
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/', [HomeController::class, 'conteudo'])->name('conteudos');
