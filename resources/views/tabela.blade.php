@@ -1,3 +1,31 @@
+<style>
+    .cell-top-four {
+        background-color: hsl(217, 72%, 45%, 0.5) !important;
+        color: #fff;
+    }
+    .cell-middle-two {
+        background-color: rgba(208, 112, 38, 0.5) !important;
+        color: #fff;
+    }
+    .cell-middle-seven {
+        background-color: hsla(136, 72%, 43%, 0.5) !important;
+        color: #fff;
+    }
+    .cell-bottom-four {
+        background-color: hsl(6, 80%, 46%, 0.5) !important;
+        color: #fff;
+    }
+    .color-box {
+        width: 15px;
+        height: 15px;
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 5px;
+    }
+    .highlight {
+        background-color: rgba(255, 255, 20, 0.493) !important;
+    }
+</style>
 <div class="p-4 p-md-5 mb-4 rounded text-body-emphasis bg-body-secondary text-center">
     <div class="col-lg-12 px-0">
         <h1 class="display-4 fst-italic">Classificação Brasileirão Serie A</h1>
