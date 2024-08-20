@@ -80,18 +80,18 @@ a, a:hover {
 	height: 40px;
 	width: 40px;
 	display: table;
-	color: #777;
+	color: #fff;
 	font-size: 18px;
 	border: 1px solid #fff!important;
 	cursor: pointer;
 	@include border-radius(50%);
 	transition: 1s;
 	margin: 0 10px;
-	color: #777!important;
+	color: #fff!important;
 }
 .fh5co_display_table:hover, .fh5co_display_table:focus {
 	display: table;
-	color: #777;
+	color: #fff;
 	border: 1px solid $yellow!important;
 	cursor: pointer;
 	@include border-radius(50%);
@@ -233,7 +233,7 @@ a, a:hover {
 	color: #424040;
 }
 .fh5co_heading_border_bottom {
-	border-bottom: 1px solid #777;
+	border-bottom: 1px solid #FFF;
 }
 .fh5co_latest_trading_img {
 	height: 326px;
@@ -534,7 +534,7 @@ a, a:hover {
 	@include border-radius(50%);
 	@include transition(1s);
 	margin-right: 10px;
-	color: #777!important;
+	color: #FFF!important;
 }
 .fh5co_display_table_footer:hover, .fh5co_display_table_footer:focus {
 	display: table;
