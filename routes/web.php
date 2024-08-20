@@ -28,9 +28,6 @@ Route::get('/', function () {
 
 
 Auth::routes();
-Route::get('/tabela', [TabelaController::class, 'tabela_brasileiro']);
-Route::get('/{teamName}', [TabelaController::class, 'showTeam']);
-Route::post('/selecionar-time', [TabelaController::class, 'selecionarTime']);
 
 Route::get('/quemsomos', [ArtigosController::class, 'QuemSomosIndex'])->name('QuemSomosIndex');
 Route::get('/contato', [ArtigosController::class, 'ContatoIndex'])->name('ContatoIndex');
@@ -38,7 +35,7 @@ Route::get('/noticias', [ArtigosController::class, 'NoticiasIndex'])->name('Noti
 Route::get('/noticias/{id}', [ArtigosController::class, 'NoticiasShow'])->name('NoticiasShow');
 
 Route::middleware(['auth'])->group(function () {
-
+    
     Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
     Route::post('/register', [RegisterController::class, 'register']);
     
@@ -48,6 +45,7 @@ Route::middleware(['auth'])->group(function () {
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/', [HomeController::class, 'conteudo'])->name('conteudos');
 Route::get('/{id}', [HomeController::class, 'show'])->name('conteudos.show');
+
 
 Route::get('/home', [ArtigosController::class, 'index'])->name('artigos.index');
 Route::delete('/home/{id}', [ArtigosController::class, 'destroy'])->name('artigos.destroy');
