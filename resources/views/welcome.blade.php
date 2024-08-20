@@ -207,7 +207,7 @@
                 <div class="fh5co_heading fh5co_heading_border_bottom py-2 mb-4">Noticias</div>
             </div>
             <div class="owl-carousel owl-theme" id="slider2">
-                @foreach ($artigosDoQuintoEmDiante as $item)
+                @foreach ($artigos2 as $item)
                     <div class="item px-2">
                         <div class="fh5co_hover_news_img">
                             <div class="fh5co_news_img"><img src="images/{{ $item->imagem }}" alt="" /></div>

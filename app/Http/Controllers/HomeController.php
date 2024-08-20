@@ -47,16 +47,18 @@ class HomeController extends Controller
     public function conteudo(){
         $artigos = Artigos::orderBy('created_at', 'desc')->take(5)->get();
         $trending = Trending::orderBy('created_at', 'desc')->take(6)->get();
-        $artigos2 = Artigos::orderBy('created_at', 'desc')->get();
+        $artigos2 = Artigos::orderBy('created_at', 'desc')
+                   ->skip(5)
+                   ->take(PHP_INT_MAX)
+                   ->get();
 
-        $artigosInvertidos = $artigos2->reverse(); // Inverte a ordem da coleção
-        $artigosDoQuintoEmDiante = $artigosInvertidos->slice(4);
+
         $lives = Lives::orderBy('created_at', 'desc')->get(); 
 
         $rows = $this->getTabelaBrasileirao();
         $rodadasContent = $this->getRodadasContent();
 
-        return view('welcome', compact(['artigos', 'trending', 'artigosDoQuintoEmDiante', 'lives', 'rows', 'rodadasContent']));
+        return view('welcome', compact(['artigos', 'trending', 'artigos2', 'lives', 'rows', 'rodadasContent']));
     }
 
     public function selecionarTime(Request $request)
