@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AgendamentoController;
 use App\Http\Controllers\ArtigosController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\HomeController;
@@ -35,16 +36,15 @@ Route::get('/noticias', [ArtigosController::class, 'NoticiasIndex'])->name('Noti
 Route::get('/noticias/{id}', [ArtigosController::class, 'NoticiasShow'])->name('NoticiasShow');
 
 Route::middleware(['auth'])->group(function () {
-    
+
     Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
     Route::post('/register', [RegisterController::class, 'register']);
-    
+
 });
 
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/', [HomeController::class, 'conteudo'])->name('conteudos');
-Route::get('/{id}', [HomeController::class, 'show'])->name('conteudos.show');
 
 
 Route::get('/home', [ArtigosController::class, 'index'])->name('artigos.index');
@@ -61,3 +61,15 @@ Route::get('/home', [LivesController::class, 'index'])->name('lives.index');
 Route::delete('/home2/{id}', [LivesController::class, 'destroy'])->name('lives.destroy');
 Route::post('/home2', [LivesController::class, 'store'])->name('lives.store');
 Route::put('/home2/{id}', [LivesController::class, 'update'])->name('lives.update');
+
+Route::get('/marcacao', [AgendamentoController::class, 'index'])->name('marcacao.index');
+Route::post('/marcacao', [AgendamentoController::class, 'enviar'])->name('marcacao.enviar');
+
+Route::get('/marcacao/profissionais/{especialidadeId}', [AgendamentoController::class, 'getProfissionais']);
+Route::get('/marcacao/disponibilidades/{profissionalId}/{especialidadeId}/{data}', [AgendamentoController::class, 'getDisponibilidades']);
+
+Route::get('/marcacao/convenios', [AgendamentoController::class, 'getConvenios']);
+Route::post('/marcacao/procedimentos', [AgendamentoController::class, 'getProcedimentos'])->name('get.procedimentos');
+
+
+Route::get('/{id}', [HomeController::class, 'show'])->name('conteudos.show');
